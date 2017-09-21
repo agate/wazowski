@@ -1,10 +1,13 @@
 version: '2'
 services:
   wazowski:
-    image: agate/wazowski:1.0.1
+    image: agate/wazowski:1.0.2
     build: .
-    volumes:
-      - .:/tmp/src
     environment:
-      - WAZOWSKI_APP_CONFIG=
-      - WAZOWSKI_SERVICES_CONFIG=
+      - WAZOWSKI_APP_CONFIG=$WAZOWSKI_APP_CONFIG
+      - WAZOWSKI_SERVICES_CONFIG=$WAZOWSKI_SERVICES_CONFIG
+  update-package-lock:
+    image: agate/wazowski:1.0.2
+    volumes:
+      - .:/src
+    command: bash -c "source /usr/local/nvm/nvm.sh && cd /src && nvm use && npm install"

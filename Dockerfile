@@ -11,6 +11,7 @@ RUN apt-get update \
     && curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.4/install.sh | bash
 
 ADD . $APP_DIR
+ADD bootstrap /usr/local/bin
 
 RUN . $NVM_DIR/nvm.sh \
     && cd $APP_DIR \
@@ -19,4 +20,4 @@ RUN . $NVM_DIR/nvm.sh \
     && npm install
 
 ENTRYPOINT ["/usr/local/bin/dumb-init", "--"]
-CMD ["$APP_DIR/bootstrap"]
+CMD ["bootstrap"]

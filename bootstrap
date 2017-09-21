@@ -2,7 +2,7 @@
 
 source $NVM_DIR/nvm.sh
 
-set -ex
+set -e
 
 echo "######### DOWNLOAD CONFIG FILES #########"
 
@@ -13,4 +13,4 @@ echo "######### LAUNCH WAZOWSKI #########"
 
 cd $APP_DIR
 nvm use
-npm run
+npm start
