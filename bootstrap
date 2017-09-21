@@ -1,1 +1,16 @@
 #!/usr/bin/env bash
+
+source $NVM_DIR/nvm.sh
+
+set -ex
+
+echo "######### DOWNLOAD CONFIG FILES #########"
+
+curl -Ls "$WAZOWSKI_APP_CONFIG" > $APP_DIR/config/app.yml
+curl -Ls "$WAZOWSKI_SERVICES_CONFIG" > $APP_DIR/config/services.yml
+
+echo "######### LAUNCH WAZOWSKI #########"
+
+cd $APP_DIR
+nvm use
+npm run

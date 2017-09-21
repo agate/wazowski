@@ -1,8 +1,10 @@
 version: '2'
 services:
   wazowski:
-    image: agate/wazowski:0.1
+    image: agate/wazowski:1.0.1
     build: .
+    volumes:
+      - .:/tmp/src
     environment:
       - WAZOWSKI_APP_CONFIG=
       - WAZOWSKI_SERVICES_CONFIG=
