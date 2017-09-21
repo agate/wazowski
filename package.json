@@ -1,7 +1,7 @@
 {
   "name": "wazowski",
   "version": "1.0.1",
-  "description": "",
+  "description": "a general health check tool",
   "main": "index.js",
   "author": "agate",
   "license": "ISC",
