@@ -1,6 +1,6 @@
 {
   "name": "wazowski",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "a general health check tool",
   "main": "index.js",
   "author": "agate",

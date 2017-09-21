@@ -1,5 +1,8 @@
 # CHANGELOG
 
+* 1.0.3
+  * Fix http strategy bug
+
 * 1.0.2
   * Fix docker bootstrap problem
 

@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+docker-compose build base
+docker-compose run npm-install
+docker-compose build

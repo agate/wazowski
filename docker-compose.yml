@@ -1,13 +1,29 @@
 version: '2'
 services:
-  wazowski:
-    image: agate/wazowski:1.0.2
+  base:
+    image: agate/wazowski:base-node82
+    build:
+      context: .
+      dockerfile: Dockerfile.base
+  app:
+    depends_on:
+      - base
+    image: agate/wazowski:1.0.3
     build: .
     environment:
       - WAZOWSKI_APP_CONFIG=$WAZOWSKI_APP_CONFIG
       - WAZOWSKI_SERVICES_CONFIG=$WAZOWSKI_SERVICES_CONFIG
-  update-package-lock:
-    image: agate/wazowski:1.0.2
+  npm-install:
+    depends_on:
+      - base
+    image: agate/wazowski:base-node82
     volumes:
       - .:/src
     command: bash -c "source /usr/local/nvm/nvm.sh && cd /src && nvm use && npm install"
+  npm-publish:
+    depends_on:
+      - base
+    image: agate/wazowski:base-node82
+    volumes:
+      - .:/src
+    command: bash -c "source /usr/local/nvm/nvm.sh && cd /src && nvm use && npm adduser && npm publish"
