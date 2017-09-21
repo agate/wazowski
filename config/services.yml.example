@@ -1,0 +1,21 @@
+---
+services:
+  - id: github.com
+    type: tcp
+    interval: 5
+    tcp:
+      host: www.github.com
+      port: 80
+  - id: ifconfig.co
+    type: http
+    interval: 5
+    http:
+      method: get
+      url: https://ifconfig.co
+  - id: api
+    type: marathon
+    interval: 5
+    marathon:
+      domain: your.marathon.domain
+      apps:
+        - /development/api

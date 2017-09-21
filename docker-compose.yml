@@ -1,0 +1,8 @@
+version: '2'
+services:
+  wazowski:
+    image: agate/wazowski:0.1
+    build: .
+    environment:
+      - WAZOWSKI_APP_CONFIG=
+      - WAZOWSKI_SERVICES_CONFIG=
